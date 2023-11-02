@@ -3,9 +3,12 @@ package com.tm.mtplayer.activites;
 import static com.tm.mtplayer.helpers.ConstantConfig.ALL_PLAY_LISTS;
 import static com.tm.mtplayer.helpers.ConstantConfig.SELECTED_PLAY_LIST;
 import static com.tm.mtplayer.helpers.ConstantConfig.SELECTED_CHANNEL;
+import static com.tm.mtplayer.helpers.Utils.collapse;
+import static com.tm.mtplayer.helpers.Utils.expand;
 import static com.tm.mtplayer.helpers.Utils.showSnackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 
@@ -32,6 +35,11 @@ import com.tm.mtplayer.models.PlayList;
 import java.util.ArrayList;
 
 public class PlayListActivity extends AppCompatActivity {
+
+    private RelativeLayout rlPlayList;
+    private RelativeLayout rlPlayListExpand;
+    private AppCompatImageButton ibCollaps;
+    private AppCompatImageButton ibExpand;
     private ListView lvPlayList;
     private ListView lvChannels;
     private MyPlayListAdapter mPlayListAdapter;
@@ -76,6 +84,10 @@ public class PlayListActivity extends AppCompatActivity {
     /**********************************************************************************************/
 
     private void bindViews() {
+        rlPlayList = (RelativeLayout) findViewById(R.id.rl_play_list);
+        rlPlayListExpand = (RelativeLayout) findViewById(R.id.rl_play_list_expand);
+        ibCollaps = (AppCompatImageButton) findViewById(R.id.ibtn_play_list_collaps_lists);
+        ibExpand = (AppCompatImageButton) findViewById(R.id.ibtn_play_list_expand_lists);
         lvPlayList = (ListView) findViewById(R.id.lv_play_list_categories);
         lvChannels = (ListView) findViewById(R.id.lv_play_list_medias);
         vPlayer = (PlayerView) findViewById(R.id.ex_player);
@@ -98,7 +110,7 @@ public class PlayListActivity extends AppCompatActivity {
 
         exPlayer = new SimpleExoPlayer.Builder(getApplicationContext()).build();
         vPlayer.setPlayer(exPlayer);
-        MediaItem _MediaItem = MediaItem.fromUri("https://i.mjh.nz/SamsungTVPlus/DEBD1100002II.m3u8");
+        MediaItem _MediaItem = MediaItem.fromUri("http://dm.lion-ott.com:80/movie/MDju3120/76un4658/778407.mp4");
         exPlayer.addMediaItem(_MediaItem);
         exPlayer.prepare();
         exPlayer.play();
@@ -148,6 +160,34 @@ public class PlayListActivity extends AppCompatActivity {
                 }
             }
         });
+
+        ibCollaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    collapse(rlPlayList);
+                    rlPlayListExpand.setVisibility(View.VISIBLE);
+                } catch (Exception e) {
+                    showSnackbar(findViewById(android.R.id.content), getString(R.string.error_message_something_wrong));
+                } finally {
+                }
+            }
+        });
+
+        ibExpand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    expand(rlPlayList);
+                    rlPlayListExpand.setVisibility(View.GONE);
+                } catch (Exception e) {
+                    showSnackbar(findViewById(android.R.id.content), getString(R.string.error_message_something_wrong));
+                } finally {
+                }
+            }
+        });
+
+
     }
 
     /**********************************************************************************************/
