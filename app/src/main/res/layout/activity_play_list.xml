@@ -31,5 +31,19 @@
         android:dividerHeight="@dimen/_1sdp"
         android:drawSelectorOnTop="true" />
 
-
+    <!-- Media List -->
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/ex_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/lv_play_list_medias"
+        android:background="@color/black"
+        app:fastforward_increment="10000"
+        app:hide_on_touch="true"
+        app:resize_mode="zoom"
+        app:show_timeout="4000"
+        app:surface_type="surface_view"
+        app:rewind_increment="10000"
+        app:shutter_background_color="@color/black"
+        app:use_controller="true"/>
 </RelativeLayout>

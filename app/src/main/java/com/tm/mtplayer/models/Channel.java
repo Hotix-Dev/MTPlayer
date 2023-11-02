@@ -5,9 +5,15 @@ import com.google.gson.annotations.SerializedName;
 
 public class Channel {
 
+    public Channel(Integer id, String title, String url) {
+        this.id = id;
+        this.title = title;
+        this.url = url;
+    }
+
     @SerializedName("id")
     @Expose
-    private String id;
+    private Integer id;
 
     @SerializedName("title")
     @Expose
@@ -21,11 +27,12 @@ public class Channel {
     @Expose
     private String logo;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+
+    public void setId(Integer id) {
         this.id = id;
     }
 

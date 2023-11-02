@@ -56,7 +56,7 @@ dependencies {
     implementation("com.github.ybq:Android-SpinKit:1.4.0")
 
     //____ExoPlayer - media player____//
-    implementation("com.google.android.exoplayer:exoplayer:2.19.1")
+    implementation("com.google.android.exoplayer:exoplayer:2.14.1")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
