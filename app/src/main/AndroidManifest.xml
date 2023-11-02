@@ -21,7 +21,7 @@
             android:name=".activites.SplashScreenActivity"
             android:exported="true"
             android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity" >
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,6 +30,11 @@
         </activity>
         <activity
             android:name=".activites.HomeActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".activites.PlayListActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity" />
