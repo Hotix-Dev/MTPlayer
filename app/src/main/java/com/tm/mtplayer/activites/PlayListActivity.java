@@ -102,18 +102,10 @@ public class PlayListActivity extends AppCompatActivity {
 
         SELECTED_PLAY_LIST = ALL_PLAY_LISTS.get(0);
 
-        if (SELECTED_PLAY_LIST != null)
-        {
+        if (SELECTED_PLAY_LIST != null) {
             mChannelsAdapter = new MyChannelsAdapter(SELECTED_PLAY_LIST.getChannels(), getApplicationContext());
             lvChannels.setAdapter(mChannelsAdapter);
         }
-
-        exPlayer = new SimpleExoPlayer.Builder(getApplicationContext()).build();
-        vPlayer.setPlayer(exPlayer);
-        MediaItem _MediaItem = MediaItem.fromUri("http://dm.lion-ott.com:80/movie/MDju3120/76un4658/778407.mp4");
-        exPlayer.addMediaItem(_MediaItem);
-        exPlayer.prepare();
-        exPlayer.play();
 
         lvPlayList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -122,8 +114,7 @@ public class PlayListActivity extends AppCompatActivity {
                     lvPlayList.setEnabled(false);
                     SELECTED_PLAY_LIST = ALL_PLAY_LISTS.get(position);
 
-                    if (SELECTED_PLAY_LIST != null)
-                    {
+                    if (SELECTED_PLAY_LIST != null) {
                         mChannelsAdapter = new MyChannelsAdapter(SELECTED_PLAY_LIST.getChannels(), getApplicationContext());
                         lvChannels.setAdapter(mChannelsAdapter);
                     }
@@ -143,8 +134,12 @@ public class PlayListActivity extends AppCompatActivity {
                     lvChannels.setEnabled(false);
                     SELECTED_CHANNEL = SELECTED_PLAY_LIST.getChannels().get(position);
 
-                    if (SELECTED_CHANNEL != null)
-                    {
+                    if (SELECTED_CHANNEL != null) {
+                        if (exPlayer != null) {
+
+                            exPlayer.pause();
+                            exPlayer.release();
+                        }
                         exPlayer = new SimpleExoPlayer.Builder(getApplicationContext()).build();
                         vPlayer.setPlayer(exPlayer);
                         MediaItem _MediaItem = MediaItem.fromUri(SELECTED_CHANNEL.getUrl());
@@ -194,7 +189,7 @@ public class PlayListActivity extends AppCompatActivity {
     private void loadTestData() {
         ALL_PLAY_LISTS = new ArrayList<PlayList>();
 
-        PlayList p1 = new   PlayList();
+        PlayList p1 = new PlayList();
         p1.setTitle("GENERALISTE FHD");
         p1.channels = new ArrayList<Channel>();
         p1.channels.add(new Channel(1, "[FR] TF1 FHD", "http://dm.lion-ott.com:80/MDju3120/76un4658/820880"));
@@ -207,7 +202,7 @@ public class PlayListActivity extends AppCompatActivity {
         p1.channels.add(new Channel(8, "[FR] ARTE FHD", "http://dm.lion-ott.com:80/MDju3120/76un4658/820873"));
         ALL_PLAY_LISTS.add(p1);
 
-        PlayList p2 = new   PlayList();
+        PlayList p2 = new PlayList();
         p2.setTitle("CANAL✚ FHD");
         p2.channels = new ArrayList<Channel>();
         p2.channels.add(new Channel(1, "[FR] CANAL+ FHD", "http://dm.lion-ott.com:80/MDju3120/76un4658/820858"));
@@ -218,7 +213,7 @@ public class PlayListActivity extends AppCompatActivity {
         p2.channels.add(new Channel(6, "[FR] CANAL+ GRAND ECRAN FHD", "http://dm.lion-ott.com:80/MDju3120/76un4658/820854"));
         ALL_PLAY_LISTS.add(p2);
 
-        PlayList p3 = new   PlayList();
+        PlayList p3 = new PlayList();
         p3.setTitle("ALL");
         p3.channels = new ArrayList<Channel>();
         p3.channels.add(new Channel(1, "Destination Nature", "https://i.mjh.nz/SamsungTVPlus/FRBC4000001IO.m3u8"));
