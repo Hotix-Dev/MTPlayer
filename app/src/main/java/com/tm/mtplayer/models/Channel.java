@@ -11,6 +11,13 @@ public class Channel {
         this.url = url;
     }
 
+    public Channel(Integer id, String title, String url, String logo) {
+        this.id = id;
+        this.title = title;
+        this.url = url;
+        this.logo = logo;
+    }
+
     @SerializedName("id")
     @Expose
     private Integer id;

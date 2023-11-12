@@ -194,4 +194,59 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/rl_movies"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_movies_top_menu"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorPrimaryDark">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_movies_categories_title"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/lbl_categories"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold" />
+
+        <!-- Categories List -->
+        <ListView
+            android:id="@+id/lv_movies_categories"
+            android:layout_width="@dimen/_110sdp"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_3sdp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/_23sdp"
+            android:background="@color/colorPrimaryDark"
+            android:divider="@color/colorPrimaryDark"
+            android:dividerHeight="@dimen/_3sdp"
+            android:drawSelectorOnTop="true" />
+
+    </RelativeLayout>
+
+    <!-- Movies Grid -->
+    <GridView
+        android:id="@+id/gv_movies"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_16sdp"
+        android:layout_below="@id/rl_movies_top_menu"
+        android:layout_toRightOf="@id/rl_movies"
+        android:layout_gravity="center"
+        android:columnWidth="@dimen/_130sdp"
+        android:drawSelectorOnTop="true"
+        android:gravity="center"
+        android:horizontalSpacing="6dp"
+        android:numColumns="auto_fit"
+        android:stretchMode="spacingWidth"
+        android:verticalSpacing="6dp" />
+
 </RelativeLayout>

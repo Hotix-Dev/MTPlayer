@@ -2363,8 +2363,40 @@ public class Stub {
             p4.channels.add(new Channel(2312, "UK - KISS TV SD", "http://line.great-pro.cc:80/Test13190502/545F9C/101106"));
             _Ret.add(p4);
 
+            return _Ret;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return new ArrayList<PlayList>();
+        }
+    }
 
 
+
+    public static ArrayList<PlayList> getMovies() {
+        ArrayList<PlayList> _Ret = new ArrayList<PlayList>();
+        try {
+
+            PlayList p1 = new PlayList();
+            p1.setTitle("AR");
+            p1.channels = new ArrayList<Channel>();
+            p1.channels.add(new Channel(1, "|AR| Frozen", "http://line.great-pro.cc:80/movie/Test13190502/545F9C/838172.mkv", "https://i.postimg.cc/BbkLPtQB/Frozen.jpg"));
+            p1.channels.add(new Channel(2, "|AR| Finding Nemo", "http://line.great-pro.cc:80/movie/Test13190502/545F9C/838171.mkv", "https://i.postimg.cc/PxqP61CM/Finding-Nemo.jpg"));
+            p1.channels.add(new Channel(3, "|AR| Cinderella III: A Twist in Time", "http://line.great-pro.cc:80/movie/Test13190502/545F9C/838168.mkv", "https://i.postimg.cc/8c6k34NL/Cinderella-III.jpg"));
+            p1.channels.add(new Channel(4, "|AR| Chicken Little", "http://line.great-pro.cc:80/movie/Test13190502/545F9C/838166.mkv", "https://i.postimg.cc/BvmTpTSq/Chicken-Little.jpg"));
+            p1.channels.add(new Channel(5, "|AR| Brother Bear", "http://line.great-pro.cc:80/movie/Test13190502/545F9C/838165.mkv", "https://i.postimg.cc/mZvQm2sF/Brother-Bear.jpg"));
+            p1.channels.add(new Channel(6, "|AR| Brother Bear 2", "http://line.great-pro.cc:80/movie/Test13190502/545F9C/838164.mkv", "https://i.postimg.cc/cCwtpwSt/Brother-Bear-2.jpg"));
+            p1.channels.add(new Channel(7, "|AR| Brave", "http://line.great-pro.cc:80/movie/Test13190502/545F9C/838163.mkv", "https://i.postimg.cc/DyLRMHkx/brave.jpg"));
+            p1.channels.add(new Channel(8, "|AR| Bolt", "http://line.great-pro.cc:80/movie/Test13190502/545F9C/838162.mkv", "https://i.postimg.cc/jSQ2tMNX/Bolt.jpg"));
+            _Ret.add(p1);
+
+            PlayList p2 = new PlayList();
+            p2.setTitle("NL");
+            p2.channels = new ArrayList<Channel>();
+            p2.channels.add(new Channel(1, "|NL| Bolt", "http://line.great-pro.cc:80/movie/Test13190502/545F9C/965527.mkv", "https://i.postimg.cc/jSQ2tMNX/Bolt.jpg"));
+            p2.channels.add(new Channel(2, "|NL| Brave", "http://line.great-pro.cc:80/movie/Test13190502/545F9C/965528.mkv", "https://i.postimg.cc/DyLRMHkx/brave.jpg"));
+            p2.channels.add(new Channel(3, "|NL| Cars 2", "http://line.great-pro.cc:80/movie/Test13190502/545F9C/965532.mkv", "https://i.postimg.cc/K8wFMVLF/Cars-2.jpg"));
+            p2.channels.add(new Channel(4, "|NL| Cars 3", "http://line.great-pro.cc:80/movie/Test13190502/545F9C/965533.mkv", "https://i.postimg.cc/Vsg8R5MK/Cars-3.jpg"));
+            _Ret.add(p2);
 
             return _Ret;
         } catch (Exception ex) {

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg2"
+    tools:context=".activites.PlayerActivity">
+
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/ex_player_full"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        app:fastforward_increment="10000"
+        app:hide_on_touch="true"
+        app:rewind_increment="10000"
+        app:show_timeout="4000"
+        app:shutter_background_color="@color/black"
+        app:surface_type="surface_view"
+        app:use_controller="true" />
+
+</RelativeLayout>
