@@ -24,11 +24,11 @@
     <!-- Home Screen Logo -->
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_home_logo"
-        android:layout_width="@dimen/_60sdp"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         android:elevation="10dp"
         app:srcCompat="@drawable/ic_splash_screen_logo" />
 
@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_80sdp"
+        android:layout_marginTop="@dimen/_50sdp"
         android:layout_marginEnd="@dimen/_25sdp"
         android:layout_marginBottom="@dimen/_16sdp"
         android:orientation="horizontal"
@@ -84,15 +84,28 @@
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/iv_home_tv"
-                        android:layout_width="@dimen/_80sdp"
-                        android:layout_height="@dimen/_80sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/tv_home_tv"
                         android:layout_centerInParent="true"
                         android:layout_marginStart="@dimen/_8sdp"
                         android:layout_marginTop="@dimen/_8sdp"
                         android:layout_marginEnd="@dimen/_8sdp"
-                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:tint="@color/white"
                         app:srcCompat="@drawable/svg_tv_512" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_home_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/_6sdp"
+                        android:text="Live TV"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
 
@@ -128,15 +141,28 @@
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/iv_home_movie"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/tv_home_movie"
                             android:layout_centerInParent="true"
                             android:layout_marginStart="@dimen/_8sdp"
                             android:layout_marginTop="@dimen/_8sdp"
                             android:layout_marginEnd="@dimen/_8sdp"
-                            android:layout_marginBottom="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_3sdp"
                             android:tint="@color/white"
                             app:srcCompat="@drawable/svg_movie_512" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_home_movie"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/_6sdp"
+                            android:text="Movies"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="bold" />
 
                     </RelativeLayout>
 
@@ -164,15 +190,28 @@
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/iv_home_shows"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/tv_home_shows"
                             android:layout_centerInParent="true"
                             android:layout_marginStart="@dimen/_8sdp"
                             android:layout_marginTop="@dimen/_8sdp"
                             android:layout_marginEnd="@dimen/_8sdp"
-                            android:layout_marginBottom="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_3sdp"
                             android:tint="@color/white"
                             app:srcCompat="@drawable/svg_videos_512" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_home_shows"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/_6sdp"
+                            android:text="Shows"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="bold" />
 
                     </RelativeLayout>
 

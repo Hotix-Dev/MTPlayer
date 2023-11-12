@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/rl_data_obj_row"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_data_obj_row_title"

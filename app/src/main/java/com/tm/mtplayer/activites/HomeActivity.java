@@ -105,7 +105,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent i = new Intent(getApplicationContext(), PlayListActivity.class);
+                    Intent i = new Intent(getApplicationContext(), MoviesActivity.class);
                     startActivity(i);
                 } catch (Exception e) {
                     showSnackbar(findViewById(android.R.id.content), getString(R.string.error_message_something_wrong));
@@ -118,7 +118,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent i = new Intent(getApplicationContext(), PlayListActivity.class);
+                    Intent i = new Intent(getApplicationContext(), ShowsActivity.class);
                     startActivity(i);
                 } catch (Exception e) {
                     showSnackbar(findViewById(android.R.id.content), getString(R.string.error_message_something_wrong));
@@ -131,7 +131,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent i = new Intent(getApplicationContext(), PlayListActivity.class);
+                    Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
                     startActivity(i);
                 } catch (Exception e) {
                     showSnackbar(findViewById(android.R.id.content), getString(R.string.error_message_something_wrong));
