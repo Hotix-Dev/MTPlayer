@@ -37,6 +37,11 @@ import java.util.ArrayList;
 
 public class PlayListActivity extends AppCompatActivity {
 
+
+    private RelativeLayout rlHome;
+    private RelativeLayout rlLiveTv;
+    private RelativeLayout rlMovies;
+    private RelativeLayout rlShows;
     private RelativeLayout rlPlayList;
     private RelativeLayout rlPlayListExpand;
     private AppCompatImageButton ibCollaps;
@@ -72,19 +77,31 @@ public class PlayListActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        exPlayer.pause();
+        if (exPlayer != null) {
+
+            exPlayer.pause();
+            exPlayer.release();
+        }
         super.onBackPressed();
     }
 
     @Override
     protected void onDestroy() {
-        exPlayer.pause();
+        if (exPlayer != null) {
+
+            exPlayer.pause();
+            exPlayer.release();
+        }
         super.onDestroy();
     }
 
     /**********************************************************************************************/
 
     private void bindViews() {
+        rlHome = (RelativeLayout) findViewById(R.id.rl_play_list_home);
+        rlLiveTv = (RelativeLayout) findViewById(R.id.rl_play_list_tv);
+        rlMovies = (RelativeLayout) findViewById(R.id.rl_play_list_movies);
+        rlShows = (RelativeLayout) findViewById(R.id.rl_play_list_shows);
         rlPlayList = (RelativeLayout) findViewById(R.id.rl_play_list);
         rlPlayListExpand = (RelativeLayout) findViewById(R.id.rl_play_list_expand);
         ibCollaps = (AppCompatImageButton) findViewById(R.id.ibtn_play_list_collaps_lists);
@@ -107,6 +124,62 @@ public class PlayListActivity extends AppCompatActivity {
             mChannelsAdapter = new MyChannelsAdapter(SELECTED_PLAY_LIST.getChannels(), getApplicationContext());
             lvChannels.setAdapter(mChannelsAdapter);
         }
+
+        rlHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                    startActivity(i);
+                    overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                    finish();
+                } catch (Exception e) {
+                    showSnackbar(findViewById(android.R.id.content), getString(R.string.error_message_something_wrong));
+                } finally {
+                }
+            }
+        });
+
+        rlLiveTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                } catch (Exception e) {
+                    showSnackbar(findViewById(android.R.id.content), getString(R.string.error_message_something_wrong));
+                } finally {
+                }
+            }
+        });
+
+        rlMovies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent i = new Intent(getApplicationContext(), MoviesActivity.class);
+                    startActivity(i);
+                    overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                    finish();
+                } catch (Exception e) {
+                    showSnackbar(findViewById(android.R.id.content), getString(R.string.error_message_something_wrong));
+                } finally {
+                }
+            }
+        });
+
+        rlShows.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent i = new Intent(getApplicationContext(), ShowsActivity.class);
+                    startActivity(i);
+                    overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                    finish();
+                } catch (Exception e) {
+                    showSnackbar(findViewById(android.R.id.content), getString(R.string.error_message_something_wrong));
+                } finally {
+                }
+            }
+        });
 
         lvPlayList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
