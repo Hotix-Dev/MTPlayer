@@ -8,4 +8,7 @@
     <string name="text_version">Version</string>
     <string name="lbl_categories">Categories</string>
     <string name="lbl_channels">Channels</string>
+    <string name="text_expiration_date">Expiration Date</string>
+    <string name="text_date">Date</string>
+    <string name="text_time">Time</string>
 </resources>

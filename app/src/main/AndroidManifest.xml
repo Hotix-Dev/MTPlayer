@@ -35,6 +35,11 @@
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity" />
         <activity
+            android:name=".activites.MainActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
             android:name=".activites.PlayListActivity"
             android:exported="false"
             android:screenOrientation="landscape"

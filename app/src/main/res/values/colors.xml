@@ -27,15 +27,26 @@
     <!--Black Opacity 10% to 100% -->
     <color name="black">#000000</color>
     <color name="black_op_100">#FF000000</color>
+    <color name="black_op_95">#F2000000</color>
     <color name="black_op_90">#E6000000</color>
+    <color name="black_op_85">#D9000000</color>
     <color name="black_op_80">#CC000000</color>
+    <color name="black_op_75">#BF000000</color>
     <color name="black_op_70">#B3000000</color>
+    <color name="black_op_65">#A6000000</color>
     <color name="black_op_60">#99000000</color>
+    <color name="black_op_55">#8C000000</color>
     <color name="black_op_50">#80000000</color>
+    <color name="black_op_45">#73000000</color>
     <color name="black_op_40">#66000000</color>
+    <color name="black_op_35">#59000000</color>
     <color name="black_op_30">#4D000000</color>
+    <color name="black_op_25">#40000000</color>
     <color name="black_op_20">#33000000</color>
+    <color name="black_op_15">#26000000</color>
     <color name="black_op_10">#1A000000</color>
+    <color name="black_op_05">#0D000000</color>
+    <color name="black_op_00">#00000000</color>
 
     <!--White Opacity 10% to 100% -->
     <color name="white">#FFFFFF</color>

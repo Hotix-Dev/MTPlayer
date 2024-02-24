@@ -79,7 +79,8 @@ public class SplashScreenActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //Intent i = new Intent(SplashScreenActivity.this, DownloadActivity.class);
-                Intent i = new Intent(SplashScreenActivity.this, HomeActivity.class);
+                //Intent i = new Intent(SplashScreenActivity.this, HomeActivity.class);
+                Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
                 startActivity(i);
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                 finish();
