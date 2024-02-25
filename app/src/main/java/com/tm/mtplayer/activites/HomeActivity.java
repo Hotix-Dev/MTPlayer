@@ -21,6 +21,7 @@ import android.widget.RelativeLayout;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tm.mtplayer.R;
+import com.tm.mtplayer.helpers.MySettings;
 
 public class HomeActivity extends AppCompatActivity {
 

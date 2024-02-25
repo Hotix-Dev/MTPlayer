@@ -1,5 +1,7 @@
 package com.tm.mtplayer.activites;
 
+import static com.tm.mtplayer.helpers.ConstantConfig.APP_VALIDITY;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
@@ -8,12 +10,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tm.mtplayer.R;
+import com.tm.mtplayer.helpers.MySettings;
+import com.tm.mtplayer.models.AppValidity;
+import com.tm.mtplayer.retrofit.RetrofitClient;
+import com.tm.mtplayer.retrofit.RetrofitInterface;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -21,6 +34,8 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     // Splash screen timer
     private static int SPLASH_TIME_OUT = 2000;
+
+    private MySettings MySettings;
 
     // Views
     private AppCompatImageView ivSplashLogo;
@@ -44,7 +59,8 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         try {
-            startDelay();
+            //startDelay();
+            loadingAppValidity();
         } catch (Exception e) {
             Log.e("SPLASH LOG", e.toString());
         }
@@ -60,7 +76,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     private void init() {
-
+        MySettings = new MySettings(getApplicationContext());
         //load logo
         Glide.with(getApplicationContext())
                 .load(R.drawable.ic_splash_screen_logo)
@@ -86,6 +102,50 @@ public class SplashScreenActivity extends AppCompatActivity {
                 finish();
             }
         }, SPLASH_TIME_OUT);
+
+    }
+
+    /**********************************(  Loading App Validity  )*************************************/
+    public void loadingAppValidity() {
+
+        String macAdress = "123456789";
+        String URL = "Security/GetApplicationValidite?";
+
+        RetrofitInterface service = RetrofitClient.getClientApi().create(RetrofitInterface.class);
+        Call<AppValidity> apiCall = service.getApplicationValidityQuery(URL, macAdress);
+
+        pbLoading.setVisibility(View.VISIBLE);
+        tvSplashFooter.setVisibility(View.VISIBLE);
+        tvSplashFooter.setText(getString(R.string.msg_loading_data));
+
+        apiCall.enqueue(new Callback<AppValidity>() {
+            @Override
+            public void onResponse(Call<AppValidity> call, Response<AppValidity> response) {
+
+                pbLoading.setVisibility(View.GONE);
+                tvSplashFooter.setText("");
+                tvSplashFooter.setVisibility(View.GONE);
+
+                if (response.raw().code() == 200) {
+                    APP_VALIDITY = response.body();
+                    //Log.e(TAG, APP_VALIDITY.getExpirationDate() + "");
+                }
+
+                MySettings.setFirstStart(false);
+                startDelay();
+
+            }
+
+            @Override
+            public void onFailure(Call<AppValidity> call, Throwable t) {
+                pbLoading.setVisibility(View.GONE);
+                tvSplashFooter.setVisibility(View.GONE);
+                tvSplashFooter.setText("");
+
+                MySettings.setFirstStart(false);
+                startDelay();
+            }
+        });
 
     }
 
