@@ -129,7 +129,7 @@ public class PlayListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                     overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                     finish();

@@ -1,5 +1,6 @@
 package com.tm.mtplayer.helpers;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
 import android.view.animation.Animation;
@@ -7,6 +8,8 @@ import android.view.animation.Transformation;
 import android.widget.RelativeLayout;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import java.nio.charset.StandardCharsets;
 
 public final class Utils {
 
@@ -22,6 +25,10 @@ public final class Utils {
                 snackBar.dismiss();
             }
         }).setActionTextColor(Color.WHITE).show();
+    }
+
+    public static String getDeviceId(Context context) {
+        return new String(android.provider.Settings.Secure.getString(context.getContentResolver(), "android_id").getBytes(StandardCharsets.UTF_8)).trim();
     }
 
     public static Boolean stringIsNullOrEmpty(String text) {

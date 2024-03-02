@@ -1,11 +1,13 @@
 package com.tm.mtplayer.activites;
 
 import static com.tm.mtplayer.helpers.ConstantConfig.APP_VALIDITY;
+import static com.tm.mtplayer.helpers.Utils.showSnackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tm.mtplayer.R;
 import com.tm.mtplayer.helpers.MySettings;
+import com.tm.mtplayer.helpers.Utils;
 import com.tm.mtplayer.models.AppValidity;
 import com.tm.mtplayer.retrofit.RetrofitClient;
 import com.tm.mtplayer.retrofit.RetrofitInterface;
@@ -108,11 +111,11 @@ public class SplashScreenActivity extends AppCompatActivity {
     /**********************************(  Loading App Validity  )*************************************/
     public void loadingAppValidity() {
 
-        String macAdress = "123456789";
+        String DeviceID = Utils.getDeviceId(getApplicationContext());
         String URL = "Security/GetApplicationValidite?";
 
         RetrofitInterface service = RetrofitClient.getClientApi().create(RetrofitInterface.class);
-        Call<AppValidity> apiCall = service.getApplicationValidityQuery(URL, macAdress);
+        Call<AppValidity> apiCall = service.getApplicationValidityQuery(URL, DeviceID);
 
         pbLoading.setVisibility(View.VISIBLE);
         tvSplashFooter.setVisibility(View.VISIBLE);
@@ -128,7 +131,6 @@ public class SplashScreenActivity extends AppCompatActivity {
 
                 if (response.raw().code() == 200) {
                     APP_VALIDITY = response.body();
-                    //Log.e(TAG, APP_VALIDITY.getExpirationDate() + "");
                 }
 
                 MySettings.setFirstStart(false);
